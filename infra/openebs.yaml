@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: infra-openebs
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/xtrasolver/talos-backup.git
+      targetRevision: HEAD
+      ref: repo
+    - repoURL: https://openebs.github.io/jiva-operator
+      chart: openebs-jiva
+      targetRevision: 3.2.0
+      helm:
+        releaseName: openebs
+        valueFiles:
+          - $repo/infra/values/openebs.yaml
+    - repoURL: https://github.com/xtrasolver/talos-backup.git
+      targetRevision: HEAD
+      path: infra/resources/openebs
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: openebs
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
+      - RespectIgnoreDifferences=true

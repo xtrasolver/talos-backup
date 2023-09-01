@@ -1,0 +1,2 @@
+defaultPolicy:
+  replicas: 1
