@@ -1,3 +1,6 @@
+operator:
+  replicaCount: 1
+
 console:
   ingress:
     enabled: true
