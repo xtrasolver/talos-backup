@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: infra-openebs
-  namespace: argocd
+  namespace: openebs
 spec:
   project: default
   sources:
@@ -10,10 +10,10 @@ spec:
       targetRevision: HEAD
       ref: repo
     - repoURL: https://openebs.github.io/jiva-operator
-      chart: openebs-jiva
+      chart: jiva
       targetRevision: 3.2.0
       helm:
-        releaseName: openebs
+        releaseName: openebs-jiva
         valueFiles:
           - $repo/infra/values/openebs.yaml
     - repoURL: https://github.com/xtrasolver/talos-backup.git
