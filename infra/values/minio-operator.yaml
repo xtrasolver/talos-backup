@@ -4,4 +4,5 @@ console:
     tls:
       - hosts:
           - minio-console.home.my-lab.cz
+        secretName: tls-minio-console.home.my-lab.cz
     host: minio-console.home.my-lab.cz
