@@ -1,0 +1,7 @@
+console:
+  ingress:
+    enabled
+  tls:
+    hosts:
+      - minio-console.home.my-lab.cz
+    host: minio-console.home.my-lab.cz
