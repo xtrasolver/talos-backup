@@ -1,6 +1,6 @@
 console:
   ingress:
-    enabled
+    enabled: true
   tls:
     hosts:
       - minio-console.home.my-lab.cz
