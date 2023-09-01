@@ -18,3 +18,6 @@ kubectl apply -f .\infra\clusterissuer.yaml
 
 $base64Pwd = kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" 
 [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($base64Pwd))
+
+$base64Token = kubectl -n minio-operator get secret console-sa-secret -o jsonpath="{.data.token}"
+[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($base64Token))
