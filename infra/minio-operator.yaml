@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: infra-minio-operator
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/xtrasolver/talos-backup.git
+      targetRevision: HEAD
+      ref: repo
+    - repoURL: https://operator.min.io/
+      chart: minio/operator
+      targetRevision: 5.0.7 
+      helm:
+        releaseName: minio
+        valueFiles:
+          - $repo/infra/values/minio-operator.yaml
+    - repoURL: https://github.com/xtrasolver/talos-backup.git
+      targetRevision: HEAD
+      path: infra/resources/minio-operator
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: minio-operator
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
+      - RespectIgnoreDifferences=true
