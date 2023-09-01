@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: infra-ingress
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/xtrasolver/talos-backup.git
+      targetRevision: HEAD
+      ref: repo
+    - repoURL: https://kubernetes.github.io/ingress-nginx
+      chart: ingress-nginx
+      targetRevision: 4.7.1
+      helm:
+        releaseName: ingress
+        valueFiles:
+          - $repo/infra/values/ingress.yaml
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: ingress
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true    

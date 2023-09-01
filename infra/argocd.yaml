@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: infra-argocd
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/xtrasolver/talos-backup.git
+      targetRevision: HEAD
+      ref: repo
+    - repoURL: https://argoproj.github.io/argo-helm
+      chart: argo-cd
+      targetRevision: 5.45.0
+      helm:
+        releaseName: argocd
+        valueFiles:
+        - $repo/infra/values/argocd.yaml   
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: argocd
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true    
