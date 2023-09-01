@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: infra-openebs
-  namespace: openebs
+  namespace: argocd
 spec:
   project: default
   sources:
