@@ -10,7 +10,7 @@ spec:
       targetRevision: HEAD
       ref: repo
     - repoURL: https://operator.min.io/
-      chart: minio/operator
+      chart: operator
       targetRevision: 5.0.7 
       helm:
         releaseName: minio
