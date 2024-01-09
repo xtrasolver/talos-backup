@@ -1,6 +1,6 @@
-secrets:
-  existingSecret: minio-tenant
 tenant:
+  secrets:
+    existingSecret: minio-tenant
   name: myminio
   pools:
   - servers: 1
