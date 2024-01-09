@@ -8,21 +8,21 @@ tenant:
     volumesPerServer: 4
     size: 10Gi
     storageClassName: openebs-jiva-csi-default
-  ingress:
-    api:
-      enabled: true
-      ingressClassName: "nginx"
-      labels: { }
-      annotations:
-        cert-manager.io/cluster-issuer: "letsencrypt-cert-issuer"
-        nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-        nginx.ingress.kubernetes.io/ssl-passthrough: "true"
-        nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"    
-      hosts: 
+ingress:
+  api:
+    enabled: true
+    ingressClassName: "nginx"
+    labels: { }
+    annotations:
+      cert-manager.io/cluster-issuer: "letsencrypt-cert-issuer"
+      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+      nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+      nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"    
+    hosts: 
+      - myminio.home.my-lab.cz
+    tls:
+    - hosts:
         - myminio.home.my-lab.cz
-      tls:
-      - hosts:
-          - myminio.home.my-lab.cz
-        secretName: tls-myminio.home.my-lab.cz
-      path: /
-      pathType: Prefix
+      secretName: tls-myminio.home.my-lab.cz
+    path: /
+    pathType: Prefix
