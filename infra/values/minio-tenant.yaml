@@ -27,7 +27,7 @@ tenant:
       path: /
       pathType: Prefix
     console:
-      enabled: false
+      enabled: true
       ingressClassName: "nginx"
       labels: { }
       annotations:
