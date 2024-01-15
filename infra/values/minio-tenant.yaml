@@ -38,6 +38,6 @@ ingress:
     tls:
     - hosts:
         - myminio-console.home.my-lab.cz
-      secretName: tls-myminio.home.my-lab.cz
+      secretName: tls-myminio-console.home.my-lab.cz
     path: /
     pathType: Prefix
