@@ -25,3 +25,19 @@ ingress:
       secretName: tls-myminio.home.my-lab.cz
     path: /
     pathType: Prefix
+  console:
+    enabled: true
+    ingressClassName: "nginx"
+    labels: { }
+    annotations:
+      cert-manager.io/cluster-issuer: "letsencrypt-cert-issuer"
+      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+      nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+      nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"    
+    host: myminio-console.home.my-lab.cz
+    tls:
+    - hosts:
+        - myminio-console.home.my-lab.cz
+      secretName: tls-myminio.home.my-lab.cz
+    path: /
+    pathType: Prefix
