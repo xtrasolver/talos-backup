@@ -1,3 +1,5 @@
+global:
+  addPrometheusAnnotations: true
 server:
   ingress:
     enabled: true
