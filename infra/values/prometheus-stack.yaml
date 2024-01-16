@@ -15,4 +15,4 @@ grafana:
           - grafana.apps.home.my-lab.cz
     ingressClassName: "nginx"
 nodeExporter:
-  enabled
+  enabled: true
