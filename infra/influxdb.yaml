@@ -10,7 +10,7 @@ spec:
       targetRevision: HEAD
       ref: repo
     - repoURL: https://helm.influxdata.com/
-      chart: influxdb
+      chart: influxdb2
       targetRevision: 4.12.5
       helm:
         releaseName: influxdb
