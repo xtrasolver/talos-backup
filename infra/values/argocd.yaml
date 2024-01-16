@@ -2,16 +2,14 @@ server:
   ingress:
     enabled: true
     hosts: 
-      - argocd.home.my-lab.cz
+      - argocd.apps.home.my-lab.cz
     tls:
     - hosts:
-        - argocd.home.my-lab.cz
-      secretName: tls-argocd.home.my-lab.cz
+        - argocd.apps.home.my-lab.cz
     https: true
     ingressClassName: "nginx"
     annotations:
       kubernetes.io/ingress.class: nginx
-      cert-manager.io/cluster-issuer: "letsencrypt-cert-issuer"
       nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-      nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+      nginx.ingress.kubernetes.io/ssl-passthrough: "false"
       nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"      
