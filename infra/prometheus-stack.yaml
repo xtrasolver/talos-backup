@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: infra-prometheus-stack
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/xtrasolver/talos-backup.git
+      targetRevision: HEAD
+      ref: repo
+    - repoURL: https://prometheus-community.github.io/helm-charts
+      chart: kube-prometheus-stack
+      targetRevision: 55.8.3
+      helm:
+        releaseName: prometheus-stack
+        valueFiles:
+          - $repo/infra/values/prometheus-stack.yaml
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: prometheus-stack
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true    
