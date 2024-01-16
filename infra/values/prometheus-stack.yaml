@@ -9,8 +9,10 @@ grafana:
   ingress:
     enabled: true
     hosts:
-      - argocd.apps.home.my-lab.cz
+      - grafana.apps.home.my-lab.cz
     tls:
       - hosts:
-          - argocd.apps.home.my-lab.cz
+          - grafana.apps.home.my-lab.cz
     ingressClassName: "nginx"
+nodeExporter:
+  enabled
