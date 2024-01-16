@@ -1,0 +1,16 @@
+grafana:
+  persistence:
+    type: pvc
+    enabled: true
+    storageClassName: openebs-jiva-csi-default
+    accessModes:
+      - ReadWriteOnce
+    size: 1Gi
+  ingress:
+    enabled: true
+    hosts:
+      - argocd.apps.home.my-lab.cz
+    tls:
+      - hosts:
+          - argocd.apps.home.my-lab.cz
+    ingressClassName: "nginx"
