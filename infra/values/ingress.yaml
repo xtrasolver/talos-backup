@@ -1,4 +1,6 @@
 service:
   internal:
     loadBalancerIP: 192.168.13.50
-    
+controller:
+  extraArgs:
+    default-ssl-certificate: "ingress/apps.my-lab.cz"
