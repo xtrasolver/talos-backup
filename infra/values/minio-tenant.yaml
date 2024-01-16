@@ -14,15 +14,13 @@ ingress:
     ingressClassName: "nginx"
     labels: { }
     annotations:
-      cert-manager.io/cluster-issuer: "letsencrypt-cert-issuer"
       nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-      nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+      nginx.ingress.kubernetes.io/ssl-passthrough: "false"
       nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"    
-    host: myminio.home.my-lab.cz
+    host: myminio.apps.home.my-lab.cz
     tls:
     - hosts:
-        - myminio.home.my-lab.cz
-      secretName: tls-myminio.home.my-lab.cz
+        - myminio.apps.home.my-lab.cz
     path: /
     pathType: Prefix
   console:
@@ -30,14 +28,12 @@ ingress:
     ingressClassName: "nginx"
     labels: { }
     annotations:
-      cert-manager.io/cluster-issuer: "letsencrypt-cert-issuer"
       nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-      nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+      nginx.ingress.kubernetes.io/ssl-passthrough: "false"
       nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"    
-    host: myminio-console.home.my-lab.cz
+    host: myminio-console.apps.home.my-lab.cz
     tls:
     - hosts:
-        - myminio-console.home.my-lab.cz
-      secretName: tls-myminio-console.home.my-lab.cz
+        - myminio-console.apps.home.my-lab.cz
     path: /
     pathType: Prefix
