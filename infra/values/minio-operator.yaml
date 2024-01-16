@@ -6,13 +6,11 @@ console:
     enabled: true
     tls:
       - hosts:
-          - minio-console.home.my-lab.cz
-        secretName: tls-minio-console.home.my-lab.cz
-    host: minio-console.home.my-lab.cz
+          - minio-console.apps.home.my-lab.cz
+    host: minio-console.apps.home.my-lab.cz
     ingressClassName: "nginx"
     annotations:
       kubernetes.io/ingress.class: nginx
-      cert-manager.io/cluster-issuer: "letsencrypt-cert-issuer"
       nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
       nginx.ingress.kubernetes.io/ssl-passthrough: "false"
       nginx.ingress.kubernetes.io/backend-protocol: "HTTP"      
