@@ -1,0 +1,18 @@
+influxdb2:
+  adminUser:
+    organization: stitnelab
+    bucket: default
+    user: mole-admin
+    existingSecret: influxdb-admin-creds
+  ingress:
+    enabled: true
+    tls: true
+    seceretName: null
+    hostname: influxdb.apps.home.my-lab.cz
+    className: nginx
+  persistence:
+    enabled: true
+    storageClass: openebs-jiva-csi-default
+  env:
+    - name: INFLUXDB_DB
+      value: main

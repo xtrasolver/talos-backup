@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: infra-influxdb
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/xtrasolver/talos-backup.git
+      targetRevision: HEAD
+      ref: repo
+    - repoURL: https://helm.influxdata.com/
+      chart: influxdb
+      targetRevision: 4.12.5
+      helm:
+        releaseName: influxdb
+        valueFiles:
+          - $repo/infra/values/influxdb.yaml
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: influxdb
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true    
+
+
