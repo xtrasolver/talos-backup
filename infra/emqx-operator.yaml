@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: infra-emqx-operator
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/xtrasolver/talos-backup.git
+      targetRevision: HEAD
+      ref: repo
+    - repoURL: https://repos.emqx.io/charts
+      chart: emqx-operator
+      targetRevision: 5.4.1
+      helm:
+        releaseName: emqx-operator
+        valueFiles:
+          - $repo/infra/values/emqx-operator.yaml
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: emqx-operator
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true    
+
+
