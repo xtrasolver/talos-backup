@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: infra-velero
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/xtrasolver/talos-backup.git
+      targetRevision: HEAD
+      ref: repo
+    - repoURL: "https://charts.jetstack.io"
+      chart: cert-manager
+      targetRevision: 1.12.3
+      helm:
+        releaseName: velero
+        valueFiles:
+          - $repo/infra/values/velero.yaml
+    - repoURL: https://github.com/xtrasolver/talos-backup.git
+      targetRevision: HEAD
+      path: infra/resources/velero
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: velero
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true

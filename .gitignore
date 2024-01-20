@@ -3,3 +3,4 @@ infra/auth-acmedns.yaml
 infra/clusterissuer.yaml
 infra/minio-tenant-secret.yaml
 infra/influx-db-secret.yaml
+infra/resources/velero/credentials.yaml
