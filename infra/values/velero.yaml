@@ -24,7 +24,11 @@ configuration:
         s3Url: http://192.168.11.11:9001
         s3ForcePathStyle: true
       defaultVolumesToRestic: true
+  volumeSnapshotLocation:
+    - name: aws
+      config:
+        region: de
 credentials:
   useSecret: true
   existingSecret: "velero-s3-credentials"
-snapshotsEnabled: false
+snapshotsEnabled: true

@@ -1,0 +1,18 @@
+apiVersion: velero.io/v1
+kind: Backup
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: '5'
+  name: backup
+spec:
+  csiSnapshotTimeout: 10m0s
+  defaultVolumesToFsBackup: true
+  hooks: {}
+  includedResources:
+    - '*'
+  itemOperationTimeout: 4h0m0s
+  metadata: {}
+  snapshotMoveData: false
+  storageLocation: minio
+  ttl: 720h0m0s
+
