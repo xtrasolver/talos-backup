@@ -5,11 +5,11 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "5"    
 spec:
-  schedule: "30 11 * * *"
+  schedule: "45 11 * * *"
   template:
-    labelSelector:
-      matchExpressions:
-      - {key: velero-backup, operator: In, values: ['true']}
+    # labelSelector:
+    #   matchExpressions:
+    #   - {key: velero-backup, operator: In, values: ['true']}
     excludedNamespaces: []
     includedResources:
     - '*'
