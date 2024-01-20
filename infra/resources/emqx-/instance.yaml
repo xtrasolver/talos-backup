@@ -16,7 +16,7 @@ spec:
                 mountPath: /mounted/cert
     dashboardServiceTemplate:
         spec:
-            type: Ingress
+            type: ClusterIP
     listenersServiceTemplate:
         spec:
             type: LoadBalancer
