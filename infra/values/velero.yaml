@@ -25,7 +25,8 @@ configuration:
         s3ForcePathStyle: true
       defaultVolumesToRestic: true
   volumeSnapshotLocation:
-    - name: aws
+    - name: minio
+      provider: aws
       config:
         region: de
 credentials:
