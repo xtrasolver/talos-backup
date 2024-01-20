@@ -1,7 +1,7 @@
 configuration:
-  provider: aws
   backupStorageLocation:
     - name: minio
+      provider: aws
       bucket: backup
       default: true
       accessMode: ReadWrite
