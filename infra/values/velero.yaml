@@ -1,15 +1,15 @@
 configuration:
   provider: aws
   backupStorageLocation:
-    name: minio
-    bucket: backup
-    default: true
-    accessMode: ReadWrite
-    config:
-      region: de
-      s3Url: http://192.168.11.11:9001
-      s3ForcePathStyle: true
-    defaultVolumesToRestic: true
+    - name: minio
+      bucket: backup
+      default: true
+      accessMode: ReadWrite
+      config:
+        region: de
+        s3Url: http://192.168.11.11:9001
+        s3ForcePathStyle: true
+      defaultVolumesToRestic: true
 credentials:
   useSecret: true
   existingSecret: "velero-s3-credentials"
