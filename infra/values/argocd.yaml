@@ -37,10 +37,10 @@ controller:
         release: kube-prometheus-stack
   resources:
     limits:
-      cpu: 100m
+      cpu: 500m
       memory: 512Mi
     requests:
-      cpu: 10m
+      cpu: 50m
       memory: 256Mi        
 repoServer:
   metrics:
@@ -52,10 +52,10 @@ repoServer:
         release: kube-prometheus-stack
   resources:
     limits:
-      cpu: 100m
+      cpu: 500m
       memory: 256Mi
     requests:
-      cpu: 10m
+      cpu: 50m
       memory: 128Mi        
 applicationSet:
   enabled: false
