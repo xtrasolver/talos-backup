@@ -11,7 +11,7 @@ spec:
       ref: repo
     - repoURL: https://repos.emqx.io/charts
       chart: emqx-operator
-      targetRevision: 5.4.1
+      targetRevision: 2.2.12
       helm:
         releaseName: emqx-operator
         valueFiles:
