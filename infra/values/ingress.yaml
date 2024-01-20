@@ -4,3 +4,10 @@ service:
 controller:
   extraArgs:
     default-ssl-certificate: "ingress/apps.my-lab.cz"
+  resources:
+    limits:
+      cpu: 100m
+      memory: 256Mi
+    requests:
+      cpu: 10m
+      memory: 128Mi 

@@ -20,6 +20,13 @@ server:
       interval: 30s
       selector:
         release: kube-prometheus-stack
+  resources:
+    limits:
+      cpu: 100m
+      memory: 128Mi
+    requests:
+      cpu: 10m
+      memory: 64Mi        
 controller:
   metrics:
     enabled: true
@@ -28,6 +35,13 @@ controller:
       interval: 30s
       selector:
         release: kube-prometheus-stack
+  resources:
+    limits:
+      cpu: 100m
+      memory: 512Mi
+    requests:
+      cpu: 10m
+      memory: 256Mi        
 repoServer:
   metrics:
     enabled: true
@@ -36,4 +50,16 @@ repoServer:
       interval: 30s
       selector:
         release: kube-prometheus-stack
-  
+  resources:
+    limits:
+      cpu: 100m
+      memory: 256Mi
+    requests:
+      cpu: 10m
+      memory: 128Mi        
+applicationSet:
+  enabled: false
+dex:
+  enabled: false
+notifications:
+  enabled: false
