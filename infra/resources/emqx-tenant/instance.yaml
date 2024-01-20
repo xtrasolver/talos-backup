@@ -10,17 +10,17 @@ spec:
             volumeClaimTemplates:
                 storageClassName: openebs-jiva-csi-default
                 resources:
-                requests:
-                    storage: 1Gi
+                    requests:
+                        storage: 1Gi
                 accessModes:
-                - ReadWriteOnce            
+                    - ReadWriteOnce
             extraVolumes:
-              - name: emqx-tls
-                secret:
-                    secretName: emqx-crt-secret
+                - name: emqx-tls
+                  secret:
+                      secretName: emqx-crt-secret
             extraVolumeMounts:
-              - name: emqx-tls
-                mountPath: /mounted/cert
+                - name: emqx-tls
+                  mountPath: /mounted/cert
     dashboardServiceTemplate:
         spec:
             type: ClusterIP
