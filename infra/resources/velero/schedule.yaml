@@ -5,8 +5,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "5"    
 spec:
-  # backup once per day at 0:00
-  schedule: "0 0 * * *"
+  schedule: "30 11 * * *"
   template:
     labelSelector:
       matchExpressions:
