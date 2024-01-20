@@ -9,9 +9,9 @@ spec:
     - repoURL: https://github.com/xtrasolver/talos-backup.git
       targetRevision: HEAD
       ref: repo
-    - repoURL: "https://charts.jetstack.io"
-      chart: cert-manager
-      targetRevision: 1.12.3
+    - repoURL: "https://vmware-tanzu.github.io/helm-charts/"
+      chart: velero
+      targetRevision: 5.2.2
       helm:
         releaseName: velero
         valueFiles:
