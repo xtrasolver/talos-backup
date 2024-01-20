@@ -7,13 +7,13 @@ spec:
     coreTemplate:
         spec:
             replicas: 1
-            extraVolumes:
-              - name: emqx-tls
-                secret:
-                    secretName: emqx-crt-secret
-            extraVolumeMounts:
-              - name: emqx-tls
-                mountPath: /mounted/cert
+            # extraVolumes:
+            #   - name: emqx-tls
+            #     secret:
+            #         secretName: emqx-crt-secret
+            # extraVolumeMounts:
+            #   - name: emqx-tls
+            #     mountPath: /mounted/cert
     # dashboardServiceTemplate:
     #     spec:
     #         type: LoadBalancer
