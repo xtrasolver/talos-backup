@@ -6,3 +6,25 @@ cephClusterSpec:
   mgr:
     count: 1
     allowMultiplePerNode: true
+  resources:
+    mgr:
+      limits:
+        cpu: "500m"
+        memory: "128Gi"
+      requests:
+        cpu: "100m"
+        memory: "64Mi"
+    mon:
+      limits:
+        cpu: "500m"
+        memory: "128Gi"
+      requests:
+        cpu: "100m"
+        memory: "64Mi"
+    osd:
+      limits:
+        cpu: "500m"
+        memory: "128Gi"
+      requests:
+        cpu: "100m"
+        memory: "64Mi"
