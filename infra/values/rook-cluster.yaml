@@ -10,21 +10,21 @@ cephClusterSpec:
     mgr:
       limits:
         cpu: "500m"
-        memory: "128Gi"
+        memory: "128Mi"
       requests:
         cpu: "100m"
         memory: "64Mi"
     mon:
       limits:
         cpu: "500m"
-        memory: "128Gi"
+        memory: "128Mi"
       requests:
         cpu: "100m"
         memory: "64Mi"
     osd:
       limits:
         cpu: "500m"
-        memory: "128Gi"
+        memory: "128Mi"
       requests:
         cpu: "100m"
         memory: "64Mi"
