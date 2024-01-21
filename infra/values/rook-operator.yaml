@@ -5,3 +5,11 @@ resources:
   limits:
     cpu: 500m
     memory: 128Mi
+discover:
+  resources:
+    - limits:
+        cpu: 500m
+        memory: 128Mi
+    - requests:
+        cpu: 100m
+        memory: 128Mi
