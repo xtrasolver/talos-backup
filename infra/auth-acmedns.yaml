@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: auth-acmedns
+  namespace: certmanager
+stringData:
+  acmedns.json: |
+    {
+      "apps.home.my-lab.cz": {
+        "username": "e8d5d073-2358-4869-b50c-40bee64947be",
+        "password": "YOw67jKV1XlF9OMaRkqKVqQ3UHF9yGyCzo-ez-PG",
+        "fulldomain": "a600074b-73b9-4e7a-b09d-f02bc782a031.auth.acme-dns.io",
+        "subdomain": "a600074b-73b9-4e7a-b09d-f02bc782a031",
+        "allowfrom": []
+      },
+      "emqx.home.my-lab.cz": {
+        "username": "e8d5d073-2358-4869-b50c-40bee64947be",
+        "password": "YOw67jKV1XlF9OMaRkqKVqQ3UHF9yGyCzo-ez-PG",
+        "fulldomain": "a600074b-73b9-4e7a-b09d-f02bc782a031.auth.acme-dns.io",
+        "subdomain": "a600074b-73b9-4e7a-b09d-f02bc782a031",
+        "allowfrom": []
+      }
+    }

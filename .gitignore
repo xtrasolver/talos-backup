@@ -1,5 +1,7 @@
 infra/acme.json
-infra/auth-acmedns.yaml
+
+infra/auth-ac
+medns.yaml
 infra/clusterissuer.yaml
 infra/minio-tenant-secret.yaml
 infra/influx-db-secret.yaml

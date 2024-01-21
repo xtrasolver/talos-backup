@@ -4,6 +4,7 @@ talosctl -e 192.168.13.10 -n 192.168.13.10 get extensions
 talosctl -e 192.168.13.10 -n 192.168.13.10 get services
 talosctl -n 192.168.13.10 service kubelet restart
 
+talosctl upgrade --nodes 192.168.13.10 --image ghcr.io/siderolabs/installer:v1.6.2 --preserve=true
 
 helm repo add argo https://argoproj.github.io/argo-helm
 kubectl create namespace argocd
@@ -12,7 +13,7 @@ kubectl apply -f root.yaml
 
 #kubectl port-forward service/argocd-server -n argocd 8080:443
 
-
+kubectl create ns certmanager
 kubectl apply -f .\infra\auth-acmedns.yaml
 kubectl apply -f .\infra\clusterissuer.yaml
 
