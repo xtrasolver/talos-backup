@@ -4,6 +4,10 @@ configOverride: |
   [global]
   osd_pool_default_size = 1
 
+toolbox:
+  # -- Enable Ceph debugging pod deployment. See [toolbox](../Troubleshooting/ceph-toolbox.md)
+  enabled: true
+
 cephClusterSpec:
   dashboard:
     enabled: true
