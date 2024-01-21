@@ -51,3 +51,26 @@ cephFileSystems:
           requests:
             cpu: "100m"
             memory: "128Mi"
+    storageClass:
+      enabled: true
+      isDefault: false
+      name: ceph-filesystem
+      # (Optional) specify a data pool to use, must be the name of one of the data pools above, 'data0' by default
+      pool: data0
+      reclaimPolicy: Delete
+      allowVolumeExpansion: true
+      volumeBindingMode: "Immediate"
+      mountOptions: []
+      # see https://github.com/rook/rook/blob/master/Documentation/Storage-Configuration/Shared-Filesystem-CephFS/filesystem-storage.md#provision-storage for available configuration
+      parameters:
+        # The secrets contain Ceph admin credentials.
+        csi.storage.k8s.io/provisioner-secret-name: rook-csi-cephfs-provisioner
+        csi.storage.k8s.io/provisioner-secret-namespace: "rook-ceph"
+        csi.storage.k8s.io/controller-expand-secret-name: rook-csi-cephfs-provisioner
+        csi.storage.k8s.io/controller-expand-secret-namespace: "rook-ceph"
+        csi.storage.k8s.io/node-stage-secret-name: rook-csi-cephfs-node
+        csi.storage.k8s.io/node-stage-secret-namespace: "rook-ceph"
+        # Specify the filesystem type of the volume. If not specified, csi-provisioner
+        # will set default as `ext4`. Note that `xfs` is not recommended due to potential deadlock
+        # in hyperconverged settings where the volume is mounted on the same node as the osds.
+        csi.storage.k8s.io/fstype: ext4            
