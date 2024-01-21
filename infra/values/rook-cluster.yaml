@@ -28,6 +28,25 @@ cephClusterSpec:
       requests:
         cpu: "100m"
         memory: "64Mi"
+ingress:
+  # -- Enable an ingress for the ceph-dashboard
+  dashboard:
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+      nginx.ingress.kubernetes.io/ssl-passthrough: "false"
+      nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    host:
+      name: ceph.apps.home.my-lab.cz
+      path: "/ceph-dashboard(/|$)(.*)"
+    tls:
+    - hosts:
+        - ceph.apps.home.my-lab.cz
+      secretName: ceph-tls
+    # Note: Only one of ingress class annotation or the `ingressClassName:` can be used at a time
+    # to set the ingress class
+    ingressClassName: nginx
+
 cephFileSystems:
   - name: ceph-filesystem
     # see https://github.com/rook/rook/blob/master/Documentation/CRDs/Shared-Filesystem/ceph-filesystem-crd.md#filesystem-settings for available configuration
