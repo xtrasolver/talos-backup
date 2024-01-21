@@ -3,10 +3,10 @@ cephClusterSpec:
   dashboard:
     enabled: true
   mon:
-    count: 3
+    count: 1
     allowMultiplePerNode: true
   mgr:
-    count: 3
+    count: 1
     allowMultiplePerNode: true
   resources:
     mgr:
@@ -55,11 +55,11 @@ cephFileSystems:
     spec:
       metadataPool:
         replicated:
-          size: 3
+          size: 1
       dataPools:
         - failureDomain: host
           replicated:
-            size: 3
+            size: 1
           # Optional and highly recommended, 'data0' by default, see https://github.com/rook/rook/blob/master/Documentation/CRDs/Shared-Filesystem/ceph-filesystem-crd.md#pools
           name: data0
       metadataServer:
