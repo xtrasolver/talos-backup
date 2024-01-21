@@ -1,4 +1,4 @@
-talosctl patch --mode=no-reboot machineconfig -n 192.168.13.10 --patch @openebs-patch.yaml
+talosctl patch --mode=no-reboot machineconfig -n 192.168.13.10 --patch @rook-patch.yaml
 talosctl -e 192.168.13.10 -n 192.168.13.10 upgrade --image=ghcr.io/siderolabs/installer:v1.5.1 --preserve
 talosctl -e 192.168.13.10 -n 192.168.13.10 get extensions
 talosctl -e 192.168.13.10 -n 192.168.13.10 get services
@@ -7,6 +7,7 @@ talosctl -n 192.168.13.10 service kubelet restart
 talosctl upgrade --nodes 192.168.13.10 --image ghcr.io/siderolabs/installer:v1.6.2 --preserve=true
 
 helm repo add argo https://argoproj.github.io/argo-helm
+helm repo update
 kubectl create namespace argocd
 helm upgrade --install --namespace  argocd  argocd argo/argo-cd -f .\infra\values\argocd.yaml
 kubectl apply -f root.yaml
