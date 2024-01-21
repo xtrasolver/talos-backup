@@ -65,15 +65,17 @@ cephFileSystems:
       metadataPool:
         replicated:
           size: 1
+          requireSafeReplicaSize: false
       dataPools:
-        - failureDomain: host
+        - failureDomain: osd
           replicated:
             size: 1
+            requireSafeReplicaSize: false
           # Optional and highly recommended, 'data0' by default, see https://github.com/rook/rook/blob/master/Documentation/CRDs/Shared-Filesystem/ceph-filesystem-crd.md#pools
           name: data0
       metadataServer:
         activeCount: 1
-        activeStandby: true
+        activeStandby: fase
         resources:
           limits:
             cpu: "500m"
