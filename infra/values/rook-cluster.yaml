@@ -75,7 +75,7 @@ cephFileSystems:
           name: data0
       metadataServer:
         activeCount: 1
-        activeStandby: fase
+        activeStandby: false
         resources:
           limits:
             cpu: "500m"
