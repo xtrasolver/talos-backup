@@ -16,6 +16,9 @@ spec:
         releaseName: certmanager
         valueFiles:
           - $repo/infra/values/certmanager.yaml
+    - repoURL: https://github.com/xtrasolver/talos-backup.git
+      targetRevision: HEAD
+      path: infra/resources/certmanager          
   destination:
     server: "https://kubernetes.default.svc"
     namespace: certmanager

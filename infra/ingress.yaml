@@ -16,6 +16,9 @@ spec:
         releaseName: ingress
         valueFiles:
           - $repo/infra/values/ingress.yaml
+    - repoURL: https://github.com/xtrasolver/talos-backup.git
+      targetRevision: HEAD
+      path: infra/resources/ingress          
   destination:
     server: "https://kubernetes.default.svc"
     namespace: ingress
