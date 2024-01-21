@@ -38,7 +38,7 @@ ingress:
       nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     host:
       name: ceph.apps.home.my-lab.cz
-      path: "/ceph-dashboard(/|$)(.*)"
+      path: "/"
     tls:
     - hosts:
         - ceph.apps.home.my-lab.cz
